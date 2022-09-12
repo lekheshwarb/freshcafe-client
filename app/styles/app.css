@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+.dashboard {
+  height: 100vh;
+}
+
+/* .navigation{
+  height: 100vh;
+} */
+
+.main-area{
+  height: 100vh;
+}
+
+
+
+/* ----- MENU PAGE STYLES -------*/
+
+#menu-container{
+  height: 100vh;
+}
+
+#item-container{
+  max-height: 100vh;
+}
+
+
+/* -------- Cart Page Styling -------*/
+#cart-order-list{
+  height: 60vh !important;
+  background: rgb(217, 236, 239);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}

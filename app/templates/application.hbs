@@ -1,2 +1,9 @@
-<h1>Nav-Bar</h1>
-{{outlet}}
+<Header />
+<div class="container-fluid text-center dashboard">
+  <div class="row align-items-start">
+    <MainNavigation class="col-2" />
+    <div class="col-10 main-area">
+      {{outlet}}
+    </div>
+  </div>
+</div>

@@ -1,6 +1,4 @@
-import Route from "@ember/routing/route";
-
-var categories = [
+[
   {
     id: 1,
     name: "Breakfast",
@@ -26,13 +24,3 @@ var categories = [
     updated_at: "2022-09-05T13:33:31.411Z",
   },
 ];
-
-export default Route.extend({
-  model() {
-    return fetch("http://localhost:3000/menu_categories").then(function (
-      response
-    ) {
-      return response.json();
-    });
-  },
-});
