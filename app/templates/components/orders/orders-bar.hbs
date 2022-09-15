@@ -1,5 +1,15 @@
 {{yield}}
 <div class="d-flex m-2 border-bottom border-top">
-  <button type="button" class="btn btn-light">All Orders</button>
-  <button type="button" class="btn btn-light">Pending</button>
+  <button type="button" class="btn btn-light" {{action changeFilter null}}>All
+    Orders</button>
+  <button
+    type="button"
+    class="btn btn-light"
+    {{action changeFilter "delivered"}}
+  >Completed</button>
+  <button
+    type="button"
+    class="btn btn-light"
+    {{action changeFilter "pending"}}
+  >Pending</button>
 </div>

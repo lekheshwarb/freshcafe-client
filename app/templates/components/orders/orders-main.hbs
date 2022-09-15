@@ -1,7 +1,7 @@
 {{yield}}
 
-{{orders/orders-bar}}
+{{orders/orders-bar changeFilter=(action "changeFilter")}}
 
-{{#each orders as |order|}}
+{{#each updatedOrders as |order|}}
   {{orders/orders-card order=order}}
 {{/each}}
