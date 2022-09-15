@@ -12,9 +12,8 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><span
             class="fs-6 fw-light"
-          >order </span><span
-            class="text-start fs-4 fw-semibold"
-          >#{{id}}</span></h5>
+          >order </span><span class="text-start fs-4 fw-semibold">#{{id}}
+          </span></h5>
         <button
           type="button"
           class="btn-close"
@@ -24,25 +23,21 @@
       </div>
       <div class="modal-body">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            {{#each items as |item|}}
-              <div class="row bg-dark">
-
+          {{#each orderItems as |orderItem|}}
+            <li class="list-group-item">
+              <div class="row">
                 <div class="col-8 text-start">
-                  {{item.item_name}}
-                  ok
+                  {{orderItem.item_name}}
                 </div>
                 <div class="col-2">
-                  x{{item.quantity}}
-                  helo
+                  x{{orderItem.quantity}}
                 </div>
                 <div class="col-2">
-                  {{item.price}}
+                  {{orderItem.item_price}}
                 </div>
-
               </div>
-            {{/each}}
-          </li>
+            </li>
+          {{/each}}
         </ul>
       </div>
       <div class="modal-footer">
