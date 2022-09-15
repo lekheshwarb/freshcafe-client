@@ -1,0 +1,106 @@
+{{yield}}
+<div
+  class="modal fade"
+  id="modalEditUserForm-{{user.id}}"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editUserLabel">Edit User</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3 text-start fw-normal">
+          <label for="userName" class="form-label">Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="userName-{{user.id}}"
+            value={{user.name}}
+            onchange={{action (mut newName) value="target.value"}}
+          />
+        </div>
+        <div class="mb-3 text-start fw-normal">
+          <label for="userMail" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="userMail-{{user.id}}"
+            value={{user.email}}
+            onchange={{action (mut newEmail) value="target.value"}}
+            placeholder="name@example.com"
+          />
+        </div>
+        <div class="mb-3 text-start fw-normal">
+          <label for="userPhone" class="form-label">Phone</label>
+          <input
+            type="number"
+            class="form-control"
+            id="userPhone-{{user.id}}"
+            value={{user.phone}}
+            onchange={{action (mut newPhone) value="target.value"}}
+          />
+        </div>
+        <div class="mb-3 text-start fw-normal">
+          <label for="userPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="userPassword-{{user.id}}"
+            value={{user.password_digest}}
+            onchange={{action (mut newPassword) value="target.value"}}
+          />
+        </div>
+
+        <div class="mb-3 text-start fw-normal">
+          <label for="userAddresss" class="form-label">Address</label>
+          <textarea
+            class="form-control"
+            id="userAddress"
+            rows="3"
+            value={{user.address}}
+            onchange={{action (mut newAddress) value="target.value"}}
+          ></textarea>
+        </div>
+
+        <div class="mb-3 text-start fw-normal">
+          <label class="form-label">Role</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            value={{user.role}}
+            onchange={{action (mut newRole) value="target.value"}}
+          >
+            <option>Choose Role</option>
+            <option value="clerk">Clerk</option>
+            <option value="owner">Owner</option>
+            <option value="customer">Customer</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Cancel</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          {{action "onSaveEdit"}}
+        >Save</button>
+      </div>
+    </div>
+  </div>
+</div>

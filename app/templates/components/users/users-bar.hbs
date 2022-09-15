@@ -1,8 +1,21 @@
 {{yield}}
 <div class="d-flex m-2 border-bottom border-top">
-  <button type="button" class="btn btn-light p-2">Customers</button>
-  <button type="button" class="btn btn-light p-2">Billing Clerks</button>
-  <button type="button" class="btn btn-light p-2">Owners</button>
+  <button
+    type="button"
+    class="btn btn-light p-2"
+    {{action "changeType" "customer"}}
+  >Customers</button>
+  <button
+    type="button"
+    class="btn btn-light p-2"
+    {{!-- {{action "changeType" "clerk"}} --}}
+  >Billing Clerks</button>
+  <button
+    type="button"
+    class="btn btn-light p-2"
+    {{!-- {{action "changeType" "owner"}} --}}
+  >
+    Owners</button>
 
   <button
     type="button"
@@ -38,7 +51,13 @@
           <div class="mb-3 text-start fw-normal">
             <label for="userName" class="form-label">Name
             </label>
-            <input type="text" class="form-control" id="userName" />
+            <input
+              type="text"
+              class="form-control"
+              id="userName"
+              value={{this.name}}
+              onchange={{action (mut this.name) value="target.value"}}
+            />
           </div>
           <div class="mb-3 text-start fw-normal">
             <label for="userMail" class="form-label">Email address</label>
@@ -47,25 +66,50 @@
               class="form-control"
               id="userMail"
               placeholder="name@example.com"
+              value={{this.email}}
+              onchange={{action (mut this.email) value="target.value"}}
             />
           </div>
           <div class="mb-3 text-start fw-normal">
             <label for="userPhone" class="form-label">Phone</label>
-            <input type="number" class="form-control" id="userPhone" />
+            <input
+              type="number"
+              class="form-control"
+              id="userPhone"
+              value={{this.phone}}
+              onchange={{action (mut this.phone) value="target.value"}}
+            />
           </div>
           <div class="mb-3 text-start fw-normal">
             <label for="userPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="userPassword" />
+            <input
+              type="password"
+              class="form-control"
+              id="userPassword"
+              value={{this.password}}
+              onchange={{action (mut this.password) value="target.value"}}
+            />
           </div>
 
           <div class="mb-3 text-start fw-normal">
             <label for="userAddresss" class="form-label">Address</label>
-            <textarea class="form-control" id="userAddress" rows="3"></textarea>
+            <textarea
+              class="form-control"
+              id="userAddress"
+              rows="3"
+              value={{this.address}}
+              onchange={{action (mut this.address) value="target.value"}}
+            ></textarea>
           </div>
 
           <div class="mb-3 text-start fw-normal">
             <label class="form-label">Role</label>
-            <select class="form-select" aria-label="Default select example">
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              value={{this.role}}
+              onchange={{action (mut this.role) value="target.value"}}
+            >
               <option selected>Choose Role</option>
               <option value="clerk">Clerk</option>
               <option value="owner">Owner</option>
@@ -78,7 +122,11 @@
             class="btn btn-secondary"
             data-bs-dismiss="modal"
           >Cancel</button>
-          <button type="button" class="btn btn-primary">Add</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            {{action "addNewUser"}}
+          >Add</button>
         </div>
       </div>
     </div>

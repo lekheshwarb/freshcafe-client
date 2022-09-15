@@ -1,9 +1,5 @@
 {{yield}}
 
-{{order/order-container/order-card}}
-{{order/order-container/order-card}}
-{{order/order-container/order-card}}
-{{order/order-container/order-card}}
-{{order/order-container/order-card}}
-{{order/order-container/order-card}}
-{{order/order-container/order-card}}
+{{#each orders as |order|}}
+  {{order/order-container/order-card order=order}}
+{{/each}}

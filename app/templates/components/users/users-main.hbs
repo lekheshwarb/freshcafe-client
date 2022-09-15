@@ -1,0 +1,9 @@
+{{yield}}
+
+{{! Sub Bar }}
+{{users/users-bar class="row"}}
+
+{{! List of users }}
+{{#each users as |user|}}
+  {{users/users-container/users-card user=user}}
+{{/each}}
