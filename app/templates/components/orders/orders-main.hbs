@@ -1,0 +1,7 @@
+{{yield}}
+
+{{orders/orders-bar}}
+
+{{#each orders as |order|}}
+  {{orders/orders-card order=order}}
+{{/each}}

@@ -1,0 +1,32 @@
+{{yield}}
+
+<div class="card w-100 m-1">
+  <div class="card-body row align-items-center">
+    <div class="card-title col-8 text-start">
+      <span class="fs-6">order </span><span
+        class="text-start fs-4 fw-semibold"
+      >#{{order.id}}</span>
+      <div class="fs-6 fw-lighter"><i class="bi bi-person-fill"></i>
+        <span> {{order.user}}</span>
+      </div>
+    </div>
+    <div class="card-text col-2">
+      <i
+        class="bi {{if isDelivered 'bi-patch-check-fill' 'bi-clock-fill'}}"
+      ></i>
+      {{order.status}}
+    </div>
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-outline-primary col-2"
+      data-bs-toggle="modal"
+      data-bs-target="#orders-card-modal-{{order.id}}"
+    >
+      View Details
+    </button>
+
+    <!-- Modal -->
+    {{orders/orders-modal items=order.order_items id=order.id}}
+  </div>
+</div>

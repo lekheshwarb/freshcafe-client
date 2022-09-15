@@ -6,6 +6,7 @@ export default Model.extend({
   deliveredAt: DS.attr("date"),
   status: DS.attr("string"),
   instructions: DS.attr("string"),
+  orderItems: DS.attr(),
   createdAt: DS.attr("date", { readOnly: true }),
   updatedAt: DS.attr("date", { readOnly: true }),
 });
