@@ -1,0 +1,189 @@
+{{yield}}
+<div class="d-flex m-2 border-bottom border-top">
+
+  <h5 class="pt-2">
+    Current category</h5>
+
+  <div class="ms-auto">
+
+    <button
+      type="button"
+      class="btn btn-light ms-auto"
+      style="border-radius: 0; border-bottom: 5px solid black"
+      data-bs-toggle="modal"
+      data-bs-target="#modalAddCategoryForm"
+    >
+      Add new category
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-light ms-auto mr-3"
+      style="border-radius: 0; border-bottom: 5px solid black"
+      data-bs-toggle="modal"
+      data-bs-target="#modalAddItemForm"
+    >
+      Add New Item
+    </button>
+
+  </div>
+  <!-- Modal for Category -->
+  <div
+    class="modal fade"
+    id="modalAddCategoryForm"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add New Category</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3 text-start fw-normal">
+            <label for="categoryName" class="form-label">Category Name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="categoryName"
+              value={{this.newCategoryName}}
+              placeholder="Ex: Main Course, desserts...."
+              onchange={{action
+                (mut this.newCategoryName)
+                value="target.value"
+              }}
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Cancel</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            {{action "addNewCategory"}}
+          >Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{! Modal for new Item }}
+  <div
+    class="modal fade"
+    id="modalAddItemForm"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add New Item</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3 text-start fw-normal">
+            <label for="itemName" class="form-label">Item name
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="itemName"
+              value={{this.newItemName}}
+              placeholder="Ex: Main Course, desserts...."
+              onchange={{action (mut this.newItemName) value="target.value"}}
+            />
+          </div>
+          <div class="mb-3 text-start fw-normal">
+            <label for="itemPrice" class="form-label">Price
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="itemPrice"
+              value={{this.newItemPrice}}
+              onchange={{action (mut this.newItemPrice) value="target.value"}}
+            />
+          </div>
+          <div class="mb-3 text-start fw-normal">
+            <label for="itemDescription" class="form-label">Description
+            </label>
+            <textarea
+              row="3"
+              class="form-control"
+              id="itemDescription"
+              value={{this.newItemDescription}}
+              onchange={{action
+                (mut this.newItemDescription)
+                value="target.value"
+              }}
+            ></textarea>
+          </div>
+          <div class="mb-3 text-start fw-normal">
+            <label for="itemProductionCost" class="form-label">Production Cost
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="itemProductionCost"
+              value={{this.newItemProductionCost}}
+              onchange={{action
+                (mut this.newItemProductionCost)
+                value="target.value"
+              }}
+            />
+          </div>
+
+          <div class="mb-3 text-start fw-normal">
+            <label class="form-label">Category</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              value={{this.newItemCategoryId}}
+              onchange={{action (mut newItemCategoryId) value="target.value"}}
+            >
+              <option>Choose Role</option>
+              {{#each categories as |category|}}
+                <option value={{category.id}}>{{category.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Cancel</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            {{action "addNewItem"}}
+          >Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
