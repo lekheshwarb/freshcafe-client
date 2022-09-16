@@ -3,11 +3,20 @@
 <div class="col p-0 border-start border-end h-100">
   <h2 class="py-3 border-bottom">Categories </h2>
   <div class="list-group">
+    <button
+      href="#"
+      class="list-group-item list-group-item-action p-3"
+      style="border-radius: 0px;"
+      {{action changeCategoryType null}}
+    >
+      All Items
+    </button>
     {{#each categories as |category|}}
       <button
         href="#"
         class="list-group-item list-group-item-action p-3"
         style="border-radius: 0px;"
+        {{action changeCategoryType category.id}}
       >
         {{category.name}}
       </button>

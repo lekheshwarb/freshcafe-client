@@ -1,9 +1,9 @@
 {{yield}}
 
 {{! Sub Bar }}
-{{users/users-bar class="row"}}
+{{users/users-bar class="row" changeFilter=(action "changeFilter")}}
 
 {{! List of users }}
-{{#each users as |user|}}
+{{#each updatedUsers as |user|}}
   {{users/users-container/users-card user=user}}
 {{/each}}

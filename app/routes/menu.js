@@ -29,6 +29,8 @@ import Route from "@ember/routing/route";
 
 export default Route.extend({
   model() {
-    return this.get("store").findAll("menu_category");
+    let categories = this.get("store").findAll("menu_category");
+    let items = this.get("store").findAll("menu_item");
+    return { categories, items };
   },
 });

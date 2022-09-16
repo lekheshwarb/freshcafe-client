@@ -1,19 +1,8 @@
 {{yield}}
 
 <div id="item-container" class="row overflow-scroll">
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
 
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
-  {{menu/item-container/item-card}}
+  {{#each items as |item|}}
+    {{menu/item-container/item-card item=item}}
+  {{/each}}
 </div>

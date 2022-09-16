@@ -1,0 +1,10 @@
+{{yield}}
+
+<div id="menu-container" class="row align-item-start">
+  {{menu/category-list
+    class="col-2"
+    categories=data.categories
+    changeCategoryType=(action "changeCategoryType")
+  }}
+  {{menu/item-container class="col-10" items=updatedItemList}}
+</div>

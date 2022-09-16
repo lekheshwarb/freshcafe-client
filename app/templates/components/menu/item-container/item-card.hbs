@@ -1,14 +1,13 @@
 {{yield}}
 
-<div class="card w-100 m-1">
+<div class="card w-100 m-1" style="border-left: 8px solid rgb(11, 11, 156);">
   <div class="card-body row align-items-center">
     <div class="card-title col-8 text-start">
-      <span class="text-start fs-4 fw-semibold">Title</span>
-      <div class="fs-6 fw-lighter">Lorem ipsum, dolor sit amet consectetur
-        adipisicing elit. Vel, omnis!
+      <span class="text-start fs-4 fw-semibold">{{item.name}}</span>
+      <div class="fs-6 fw-lighter">{{item.description}}
       </div>
     </div>
-    <div class="card-text col-2">$24.5</div>
+    <div class="card-text col-2">${{item.price}}</div>
     <button type="button" class="btn btn-outline-primary col-2">Add to Cart</button>
   </div>
 </div>

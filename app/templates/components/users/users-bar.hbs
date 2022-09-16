@@ -3,17 +3,22 @@
   <button
     type="button"
     class="btn btn-light p-2"
-    {{action "changeType" "customer"}}
+    {{action changeFilter null}}
+  >All Users</button>
+  <button
+    type="button"
+    class="btn btn-light p-2"
+    {{action changeFilter "customer"}}
   >Customers</button>
   <button
     type="button"
     class="btn btn-light p-2"
-    {{!-- {{action "changeType" "clerk"}} --}}
+    {{action changeFilter "clerk"}}
   >Billing Clerks</button>
   <button
     type="button"
     class="btn btn-light p-2"
-    {{!-- {{action "changeType" "owner"}} --}}
+    {{action changeFilter "owner"}}
   >
     Owners</button>
 
