@@ -1,0 +1,15 @@
+{{yield}}
+{{reports/reports-bar
+  dateFrom=dateFrom
+  dateTo=dateTo
+  userFilter=userFilter
+  usersList=usersList
+  changeUser=(action "changeUser")
+  invoice=invoice
+}}
+
+<div class="row">
+  {{#each updatedInvoices as |invoice|}}
+    {{reports/reports-card invoice=invoice}}
+  {{/each}}
+</div>

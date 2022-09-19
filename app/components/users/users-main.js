@@ -12,7 +12,7 @@ export default Component.extend({
         if (user.role === this.get("filter")) updatedList.push(user);
       });
     }
-    console.log(updatedList);
+    // console.log(updatedList);
     return updatedList;
   }),
 
