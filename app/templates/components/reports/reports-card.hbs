@@ -1,6 +1,13 @@
 {{yield}}
 <div class="col-sm-6 my-3">
-  <div class="card shadow" style="border:none; border-left: 5px solid green; ">
+  <div
+    class="card shadow"
+    style="border:none; border-left: 5px solid {{if
+      isDelivered
+      'green'
+      'red'
+    }}; "
+  >
     <div class="card-body">
       <div class="d-flex justify-content-between mb-3">
         <div>
@@ -8,9 +15,14 @@
           <span class="fs-4 fw-bold">#{{invoice.id}}</span>
         </div>
         <button
-          class="btn btn-success fs-5 fw-bold text-capitalize"
+          class="btn btn-{{if isDelivered 'success' 'danger'}}
+            fs-5 fw-bold text-capitalize"
           style="cursor: default;"
-        ><i class="bi bi-clipboard-check-fill"></i>
+        ><i
+            class="bi
+              {{if isDelivered 'bi-clipboard-check-fill' 'bi-clock-fill'}}
+              "
+          ></i>
           {{invoice.status}}</button>
       </div>
       <div class="d-flex fw-light fs-6 my-1" style="color: rgb(139, 139, 139);">
